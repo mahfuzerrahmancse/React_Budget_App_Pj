@@ -1,4 +1,3 @@
-// import React, { useRef } from 'react'
 import { Button, Modal, ModalBody, ModalHeader, ModalTitle, Stack } from 'react-bootstrap'
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '../contexts/BudgetsContext'
 import { currencyFormatter } from '../utils'
@@ -8,7 +7,7 @@ export default function ViewExpensesModal({budgetId,handleClose}) {
     const {getBudgetExpenses,budgets,deleteBudget,deleteExpense}=useBudgets()
 
     const expenses=getBudgetExpenses(budgetId)
-    const budget=UNCATEGORIZED_BUDGET_ID===budgetId ? {name:"Uncategorized", id:UNCATEGORIZED_BUDGET_ID}:budgets.find(b=>b.id===budgetId)
+    const budget=UNCATEGORIZED_BUDGET_ID===budgetId ? {name:"Uncategorized", id:UNCATEGORIZED_BUDGET_ID}:budgets?.find(b=>b.id===budgetId)
 
 
   return (

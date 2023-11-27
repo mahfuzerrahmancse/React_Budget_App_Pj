@@ -8,8 +8,8 @@ export default function AddBudgetModal({show,handleClose}) {
     const {addBudget}=useBudgets()
 
     function handleSubmit(e){
-        e.preventDafault()
-        AddBudgetModal(
+        e.preventDefault()
+        addBudget(
             {
                 name:nameRef.current.value,
                 max: parseFloat(maxRef.current.value)

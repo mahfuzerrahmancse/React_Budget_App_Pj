@@ -1,5 +1,4 @@
 import  Container from 'react-bootstrap/Container';
-// import './App.css';
 import { Button, Stack } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BudgetCard  from './components/BudgetCard';
@@ -33,7 +32,7 @@ function App() {
         <Button variant='outline-primary' onClick={openAddExpenseModal} >Add Expense</Button>
       </Stack>
       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))",gap:"1rem",alignItems:"flex-start"}} >
-        {budgets.map(budget=>{
+        {budgets?.map(budget=>{
           const amount=getBudgetExpenses(budget.id).reduce((total,expense)=>total+expense.amount,0)
           return (
             <BudgetCard key={budget.id} name={budget.name} amount={amount} max={budget.max} onAddExpenseClick={()=>openAddExpenseModal(budget.id)} onViewExpenseClick={()=>setViewExpensesModalBudgetId(budget.id)} />
